@@ -6,6 +6,14 @@ const todoItems = require("../modules/task.data");
 
 // PUT Route
 router.put("/complete/:id", (req, res) => {
+  console.log(req.params.id);
+
+  for (let item of todoItems) {
+    if (req.params.id == item.id) {
+      item.complete = true;
+    }
+  }
+
   res.sendStatus(200);
 }); // END PUT Route
 
